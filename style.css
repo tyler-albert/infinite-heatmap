@@ -1,0 +1,121 @@
+* {
+    box-sizing: border-box;
+    position: relative;
+}
+
+body {
+    margin: 0px;
+}
+
+#main-container {
+    margin: 10px;
+    border: 1px solid black;
+    width: 800px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+}
+
+#table-body {
+    overflow: auto;
+    width: calc(100% - 130px);
+    height: 100%;
+}
+
+#table-content {
+    width: fit-content;
+    height: fit-content;
+}
+
+#corner-buffer {
+    display: flex;
+    width: 130px;
+    height: 100%;
+}
+
+#column-container {
+    display: flex;
+    flex-direction: row;
+    height: 130px;
+    width: 100%;
+}
+
+#column-header-scroll-container {
+    height: 100%;
+    width: calc(100% - 130px);
+
+    background-color: grey;
+    overflow: hidden;
+}
+
+#column-header-container {
+    height: 100%;
+    background-color: white;
+}
+
+#row-container {
+    height: calc(100% - 130px);
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+#row-header-scroll-container {
+    height: 100%;
+    width: 130px;
+
+    background-color: grey;
+    overflow: hidden;
+}
+
+#row-header-container {
+    width: 100%;
+    background-color: white;
+}
+
+.body-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+}
+
+.column-header-cell {
+    display: flex;
+    align-items: center;
+
+    width: 60px;
+    height: 130px;
+    padding-top: 5px;
+
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+}
+
+.row-header-cell {
+    display: flex;
+    align-items: center;
+
+    width: 130px;
+    height: 60px;
+    padding-left: 5px;
+}
+
+.body-cell, .row-header-cell, .column-header-cell, #corner-buffer {
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.body-cell, .row-header-cell, .column-header-cell {
+    position: absolute;
+    z-index: 0;
+}
+
+.row-header-cell, .column-header-cell {
+    background-color: white;
+}
+
+#row-header-container, #column-header-container {
+    background-color: grey;
+}
