@@ -55,11 +55,9 @@ document.addEventListener("DOMContentLoaded", function () {
     tableContentDiv = document.querySelector("#table-content");
     rowHeaderScrollContainer = document.querySelector("#row-header-scroll-container");
     rowHeaderContainerDiv = document.querySelector("#row-header-container");
-    rowHeaderContainerDiv.style.marginBottom = scrollbarWidth + "px";
 
     columnHeaderScrollContainer = document.querySelector("#column-header-scroll-container");
     columnHeaderContainerDiv = document.querySelector("#column-header-container");
-    columnHeaderContainerDiv.style.marginRight = scrollbarWidth + "px";
 
     initialize(1000, 1000);
     resizeTable();
@@ -98,7 +96,7 @@ function initialize(totalRowsInit, totalColumnsInit) {
     tableDiv.scrollTop = 0;
 
     tableContentDiv.style.width = (totalRows * CELL_WIDTH) + "px";
-    columnHeaderContainerDiv.style.width = ((totalRows * CELL_WIDTH) + scrollbarWidth ) + "px";
+    columnHeaderContainerDiv.style.width = ((totalRows * CELL_WIDTH) + scrollbarWidth) + "px";
 
     tableContentDiv.style.height = (totalColumns * CELL_HEIGHT) + "px";
     rowHeaderContainerDiv.style.height = ((totalColumns * CELL_HEIGHT) + scrollbarWidth) + "px";
@@ -112,8 +110,9 @@ function resizeTable() {
     let tableWidth = tableDiv.getBoundingClientRect().width;
     let tableHeight = tableDiv.getBoundingClientRect().height;
 
-    let SLIDING_WINDOW_ROWS = Math.floor(tableWidth / CELL_WIDTH);
-    let SLIDING_WINDOW_COLUMNS = Math.floor(tableHeight / CELL_HEIGHT);
+    // Note that rows are determined by height, and columns are determined by width
+    let SLIDING_WINDOW_ROWS = Math.floor(tableHeight / CELL_HEIGHT);
+    let SLIDING_WINDOW_COLUMNS = Math.floor(tableWidth / CELL_WIDTH);
 
     var newTotalLoadedRows = (2 * BUFFER_SIZE) + SLIDING_WINDOW_ROWS;
     var newTotalLoadedColumns = (2 * BUFFER_SIZE) + SLIDING_WINDOW_COLUMNS;
