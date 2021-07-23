@@ -95,11 +95,11 @@ function initialize(totalRowsInit, totalColumnsInit) {
     tableDiv.scrollLeft = 0;
     tableDiv.scrollTop = 0;
 
-    tableContentDiv.style.width = (totalRows * CELL_WIDTH) + "px";
-    columnHeaderContainerDiv.style.width = ((totalRows * CELL_WIDTH) + scrollbarWidth) + "px";
+    tableContentDiv.style.width = (totalColumns * CELL_WIDTH) + "px";
+    columnHeaderContainerDiv.style.width = ((totalColumns * CELL_WIDTH) + scrollbarWidth) + "px";
 
-    tableContentDiv.style.height = (totalColumns * CELL_HEIGHT) + "px";
-    rowHeaderContainerDiv.style.height = ((totalColumns * CELL_HEIGHT) + scrollbarWidth) + "px";
+    tableContentDiv.style.height = (totalRows * CELL_HEIGHT) + "px";
+    rowHeaderContainerDiv.style.height = ((totalRows * CELL_HEIGHT) + scrollbarWidth) + "px";
 
     // Start user in the top left corner
     currentRowIndex = 0;
